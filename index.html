@@ -1,6 +1,13 @@
 <!-- Import the component -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
 
+<style>
+    model-viewer::part(default-ar-button) {
+        transform: scale(2);
+        margin: 20px;
+    }
+</style>
+
 <!-- Use it like any other HTML element -->
 <body>
     <model-viewer
