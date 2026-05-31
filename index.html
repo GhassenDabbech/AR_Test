@@ -1,6 +1,7 @@
-<!-- Import the component -->
+<!-- Modelviewer-Komponente importieren -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
 
+<!-- AR-Button sichtbarer machen -->
 <style>
     model-viewer::part(default-ar-button) {
         position: absolute;
@@ -11,7 +12,7 @@
     }
 </style>
 
-<!-- Use it like any other HTML element -->
+<!-- Modelviewer-Komponente wie jedes andere HTML-Element verwenden -->
 <body>
     <model-viewer
         id = "ar-viewer"
@@ -23,8 +24,9 @@
         touch-actions="pan-y"
         style="width: 100vw; height: 80vh; margin: 0; display: block;">
     </model-viewer>
-    <!--sceneviewer and quicklook only as backup-->
-<!-- 
+    <!--sceneviewer und quicklook nur als backup-->
+    
+<!-- Skalierung nicht mehr nötig, da wir uns mit der KI-Gruppe auf einer festen Größe geeinigt haben
     <script>
         const viewer = document.getElementById('viewer');
         viewer.addEventListener('load', () => {
@@ -34,14 +36,18 @@
     </script> -->
 
     <script>
+        // Das "?" abschneiden und den Modell-url aus der Addresszeile (alles, was nach dem "?" steht)
         const modelUrl = window.location.search.substring(1);
 
+        //Das Model-Viewer Element über die ID holen
         const viewer = document.getElementById('ar-viewer');
 
-        if (modelUrl && modelUrl.trim() != "") {
+        //Prüfen, ob eine valide Modell-url übergeben wurde
+        if (modelUrl && modelUrl.trim() !== "") {
             viewer.setAttribute('src', modelUrl);
         } else {
-            viewer.setAttribute('src', 'Girl.glb'); //Fallback if no model url exists (useful for testing on our github pages site)
+            //Backup-Modell laden, falls keine URL angegeben wurde (zu Testzwecken)
+            viewer.setAttribute('src', 'Girl.glb');
         }
     </script>
 </body>
