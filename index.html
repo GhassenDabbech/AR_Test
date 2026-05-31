@@ -14,7 +14,7 @@
 <!-- Use it like any other HTML element -->
 <body>
     <model-viewer
-        src="Girl.glb"
+        id = "ar-viewer"
         alt="Mein 3D Modell"
         ar
         ar-modes="webxr scene-viewer quick-look"
@@ -22,7 +22,8 @@
         _scale="0.01 0.01 0.01" 
         touch-actions="pan-y"
         style="width: 100vw; height: 80vh; margin: 0; display: block;">
-    </model-viewer>"
+    </model-viewer>
+    <!--sceneviewer and quicklook only as backup-->
 <!-- 
     <script>
         const viewer = document.getElementById('viewer');
@@ -31,4 +32,16 @@
             viewer.updateFraming();
         });
     </script> -->
+
+    <script>
+        const modelUrl = window.location.search.substring(1);
+
+        const viewer = document.getElementById('ar-viewer');
+
+        if (modelUrl && modelUrl.trim() != "") {
+            viewer.setAttribute('src', modelUrl);
+        } else {
+            viewer.setAttribute('src', 'Girl.glb'); //Fallback if no model url exists (useful for testing on our github pages site)
+        }
+    </script>
 </body>
