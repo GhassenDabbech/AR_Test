@@ -46,7 +46,7 @@
         if (modelUrl && modelUrl.trim() !== "") {
             viewer.setAttribute('src', modelUrl);
         } else {
-            //Backup-Modell laden, falls keine URL angegeben wurde (zu Testzwecken)
+            //Fehlermeldung, falls keine URL angegeben wurde
             viewer.style.display = "none";
             const errorDiv = document.createElement('div');
             errorDiv.className = "error-message";
