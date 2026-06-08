@@ -47,6 +47,7 @@
             viewer.setAttribute('src', modelUrl);
         } else {
             //Fehlermeldung, falls keine URL angegeben wurde
+            alert("Fehler: Kein 3D-Modell in der URL angegeben!");
             viewer.style.display = "none";
             const errorDiv = document.createElement('div');
             errorDiv.className = "error-message";
