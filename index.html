@@ -47,7 +47,11 @@
             viewer.setAttribute('src', modelUrl);
         } else {
             //Backup-Modell laden, falls keine URL angegeben wurde (zu Testzwecken)
-            viewer.setAttribute('src', 'Girl.glb');
+            viewer.style.display = "none";
+            const errorDiv = document.createElement('div');
+            errorDiv.className = "error-message";
+            errorDiv.innerText = "Fehler: Kein 3D-Modell in der URL angegeben!";
+            document.body.appendChild(errorDiv);
         }
     </script>
 </body>
