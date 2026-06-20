@@ -1,5 +1,6 @@
 <!-- Modelviewer-Komponente importieren -->
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <!-- AR-Button sichtbarer machen -->
 <style>
@@ -14,6 +15,7 @@
 
 <!-- Modelviewer-Komponente wie jedes andere HTML-Element verwenden -->
 <body>
+    <div id="qrcode" style="position: absolute; top: 15px; right: 15px;"></div>
     <model-viewer
         id = "ar-viewer"
         alt="Mein 3D Modell"
@@ -53,5 +55,12 @@
             errorDiv.innerText = "Fehler: Kein 3D-Modell in der URL angegeben!";
             document.body.appendChild(errorDiv);
         }
-    </script>
+
+    //QR-Code generieren
+    new QRCode(document.getElementById("qrcode"), {
+        text: window.location.href, //holt die aktuelle URL
+        width: 128,
+        height: 128,
+    });
+        </script>
 </body>
