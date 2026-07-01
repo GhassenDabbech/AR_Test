@@ -28,6 +28,7 @@
         style="width: 100vw; height: 80vh; margin: 0; display: block;">
     </model-viewer>
     <!--sceneviewer und quicklook nur als backup-->
+    <!-- crossorigin="anonymous" erlaubt das Laden von Modellen von fremden IPs via WLAN (verhindert CORS-Sperre im Quest-Browser) -->
     
 <!-- Skalierung nicht mehr nötig, da wir uns mit der KI-Gruppe auf einer festen Größe geeinigt haben
     <script>
@@ -37,6 +38,12 @@
             viewer.updateFraming();
         });
     </script> -->
+
+    <div id="qrcode" style="position: absolute; top: 15px; right: 15px; width: 200px;"></div>
+    
+    <div style="position: absolute; top: 225px; right: 15px; width: 200px; text-align: center; font-family: sans-serif; font-weight: bold;">      
+            Scan me with a VR headset!
+    </div>
 
     <script>
         // Das "?" abschneiden und den Modell-url aus der Addresszeile auslesen (alles, was nach dem "?" steht)
